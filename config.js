@@ -12,7 +12,7 @@ module.exports = {
   },
   production: {
     ports: {
-      portal: 30200,
+      portal: 30060,
       authentication: 30100,
       accounts: 30120,
       transactions: 30140,
