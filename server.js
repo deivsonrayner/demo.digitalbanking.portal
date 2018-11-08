@@ -1,4 +1,6 @@
 'use strict';
+require('appmetrics-dash').attach();
+require('appmetrics-prometheus').attach();
 require('dotenv').config({silent: true, path: `${__dirname}/.env`});
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -31,6 +33,7 @@ app.use(session({
 }));
 
 require('./routes/auth')(app);
+require('./routes/health')(app);
 require('./routes/user')(app, request, config.ports);
 require('./routes/bills')(app, request, config.ports);
 require('./routes/accounts')(app, request, config.ports);

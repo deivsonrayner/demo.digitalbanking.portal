@@ -4,7 +4,7 @@
   "description": "Innovate: Digital Bank",
   "private": true,
   "engines": {
-    "node": "^6.9.0"
+    "node": "^8.11.1"
   },
   "scripts": {
     "start": "node server.js",
@@ -20,6 +20,9 @@
     "idt:install": "node idt.js install"
   },
   "dependencies": {
+    "appmetrics-dash": "^4.0.0",
+    "appmetrics-prometheus": "^2.0.0",
+    "appmetrics-zipkin": "^1.0.4",
     "body-parser": "^1.17.2",
     "connect-mongo": "^2.0.1",
     "cookie-parser": "^1.4.3",
