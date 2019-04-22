@@ -40,7 +40,7 @@ require('./routes/accounts')(app, request, config.ports);
 require('./routes/transactions')(app, request, config.ports);
 require('./routes/support')(app, request, config.ports);
 
-var port = 3100;
+var port = 80;
 
 console.log(`Running on ${process.env.BASE_PATH}:${port}, connecting to ${process.env.MONGO_URL}`)
 

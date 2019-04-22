@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{  .Chart.Name }}-configmap"
+  labels:
+    chart: '{{ .Chart.Name }}-{{ .Chart.Version | replace "+" "_" }}'
+data:
+  MONGO_URL: "mongodb://169.57.206.164:27017/local"
+  SESSION_SECRET: "qweqweq3eq3eweqdasd"
+  NODE_ENV: "production"
+  SIGNUP_ENDPOINT: "innovate-userbase.svc:80/api/user/create"
+  LOGIN_ENDPOINT: "innovate-userbase.svc:80/api/user/authenticate"
+  GET_BILLS_ENDPOINT: "innovate-bills.svc:80/api/bills/get"
+  UPSERT_BILL_ENDPOINT: "innovate-bills.svc:80/api/bills/create"
+  CREATE_ACCOUNT_ENDPOINT: "innovate-accounts.svc:80/api/accounts/create"
+  GET_ACCOUNTS_ENDPOINT: "innovate-accounts.svc:80/api/accounts/get"
+  ACCOUNT_WITHDRAW_ENDPOINT: "innovate-accounts.svc:80/api/accounts/withdraw"
+  ACCOUNT_DEPOSIT_ENDPOINT: "innovate-accounts.svc:80/api/accounts/deposit"
+  CREATE_TRANSACTION_ENDPOINT: "innovate-transactions.svc:80/api/transactions/create"
+  GET_TRANSACTIONS_ENDPOINT: "innovate-transactions.svc:80/api/transactions/get"
+  CHAT_ENDPOINT: "innovate-support.svc:80/api/message"

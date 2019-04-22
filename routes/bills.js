@@ -11,11 +11,11 @@ module.exports = function (app, request, ports) {
         };
         var options = {
             method: 'POST',
-            uri: `${req.protocol}://${req.hostname}:${ports.transactions}${process.env.CREATE_TRANSACTION_ENDPOINT}`,
+            uri: `http://${process.env.CREATE_TRANSACTION_ENDPOINT}`,
             body: params,
             json: true
         };
-        console.log('Pay on URI: '+`${req.protocol}://${req.hostname}:${ports.transactions}${process.env.CREATE_TRANSACTION_ENDPOINT}`);
+        console.log('Pay on URI: '+`http://${process.env.CREATE_TRANSACTION_ENDPOINT}`);
         request.post(options, function (error, response, body) {
             if (response.statusCode === 500) {
                 res.redirect('/bills.html#failure');
@@ -31,7 +31,7 @@ module.exports = function (app, request, ports) {
             };
             var options = {
                 method: 'POST',
-                uri: `${req.protocol}://${req.hostname}:${ports.bills}${process.env.UPSERT_BILL_ENDPOINT}`,
+                uri: `http://${process.env.UPSERT_BILL_ENDPOINT}`,
                 body: params,
                 json: true
             };
@@ -46,10 +46,10 @@ module.exports = function (app, request, ports) {
     });
 
     app.post('/endpoints/bills/get', function (req, res) {
-        console.log('Bill on URI: '+`${req.protocol}://${req.hostname}:${ports.bills}${process.env.GET_BILLS_ENDPOINT}`);
+        console.log('Bill on URI: '+`http://${process.env.GET_BILLS_ENDPOINT}`);
         var options = {
             method: 'POST',
-            uri: `${req.protocol}://${req.hostname}:${ports.bills}${process.env.GET_BILLS_ENDPOINT}`,
+            uri: `http://${process.env.GET_BILLS_ENDPOINT}`,
             body: req.body,
             json: true
         };
