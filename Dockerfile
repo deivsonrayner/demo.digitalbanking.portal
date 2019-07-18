@@ -1,5 +1,4 @@
 FROM ibmcom/ibmnode:latest
-LABEL maintainer="amalamine@ae.ibm.com"
 
 #RUN apt-get install -y nodejs npm
 

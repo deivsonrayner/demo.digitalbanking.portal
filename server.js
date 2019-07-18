@@ -1,6 +1,6 @@
 'use strict';
-require('appmetrics-dash').attach();
-require('appmetrics-prometheus').attach();
+//require('appmetrics-dash').attach();
+//require('appmetrics-prometheus').attach();
 require('dotenv').config({silent: true, path: `${__dirname}/.env`});
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -40,7 +40,7 @@ require('./routes/accounts')(app, request, config.ports);
 require('./routes/transactions')(app, request, config.ports);
 require('./routes/support')(app, request, config.ports);
 
-var port = 80;
+var port = 8080;
 
 console.log(`Running on ${process.env.BASE_PATH}:${port}, connecting to ${process.env.MONGO_URL}`)
 

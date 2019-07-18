@@ -3,20 +3,19 @@
 replicaCount: 1
 revisionHistoryLimit: 3
 image:
-  repository: mycluster.icp:8500/default/innovate-portal
-  tag: v1.0.0
+  repository: us.icr.io/digital-banking/banking-portal
+  tag: 0.1
   pullPolicy: Always
   resources:
     requests:
       cpu: 100m
-      memory: 512Mi
+      memory: 128Mi
 livenessProbe:
   initialDelaySeconds: 3000
   periodSeconds: 1000
 service:
-  name: Node
   type: NodePort
-  servicePort: 80
+  servicePort: 8080
   serviceNodePort: 30060
 hpa:
   enabled: false
@@ -27,4 +26,5 @@ hpa:
       targetAverageUtilization: 80
     memory:
       targetAverageUtilization: 80
-services:
+ingress:
+  host: banking-portal.iks-cluster.sao01.containers.appdomain.cloud
